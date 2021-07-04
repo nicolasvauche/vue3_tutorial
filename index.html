@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Vue3 : Exemple de base</title>
+
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="js/index.js" defer></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <h1 :title="pageTitle + ' 👋'">{{ pageTitle }}</h1>
+
+      <p class="description">
+        Ce premier exemple montre comment implémenter Vue3 dans une page
+        HTML.<br />
+        Cet exemple propose une simple todolist.
+      </p>
+
+      <p @click="inverser" title="Cliquer pour inverser la liste 😉">
+        Il vous reste à faire :
+      </p>
+      <ul>
+        <li v-for="todo in todos">
+          <tasks :content="todo"></tasks>
+        </li>
+        <li>
+          <addtask @newtodo="addTodo"></addtask>
+        </li>
+      </ul>
+
+      <p class="description">
+        Vous êtes sur cette page depuis {{ counter }} seconde{{ counter > 1 ?
+        's' : '' }}…
+      </p>
+
+      <hr />
+
+      <footer class="footer">
+        <p>Copyright {{ copyright }} {{ new Date().getFullYear() }}.</p>
+      </footer>
+    </div>
+  </body>
+</html>
